@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.seleniumexpress.dependency.injection" />
+	
+    <!-- MathCheat Common object for Student and Another Student -->
+    
+    <bean id="mathCheatObjectValue" class="com.seleniumexpress.dependency.injection.MathCheat"/>
+    <bean id="scienceCheatObjectValue" class="com.seleniumexpress.dependency.injection.ScienceCheat"/>
+    <bean id="javaCheatObjectValue" class="com.seleniumexpress.dependency.injection.JavaCheat"/>
+    
+    <bean id="stuMath" class="com.seleniumexpress.dependency.injection.Student">
+        <property name="cheat" ref="mathCheatObjectValue"/> <!-- Use mathCheatObjectValue here -->
+    </bean>
+    
+     <bean id="stuJava" class="com.seleniumexpress.dependency.injection.Student">
+        <property name="cheat" ref="javaCheatObjectValue"/> <!-- Use javaCheatObjectValue here -->
+    </bean>
+    
+     <bean id="stuScience" class="com.seleniumexpress.dependency.injection.Student">
+        <property name="cheat" ref="scienceCheatObjectValue"/> <!-- Use scienceCheatObjectValue here -->
+    </bean>
+
+</beans>
