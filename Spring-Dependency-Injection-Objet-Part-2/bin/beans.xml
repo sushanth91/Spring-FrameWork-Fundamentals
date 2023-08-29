@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan
+		base-package="com.seleniumexpress.dependency.injection" />
+	
+		<!-- MathCheat Common object for Student and Another Student -->
+		<bean id="mathCheatObjectValue" class="com.seleniumexpress.dependency.injection.MathCheat"/>
+
+	<bean id="student"
+		class="com.seleniumexpress.dependency.injection.Student">
+		<property name="id" value="1001"></property>
+		<property name="mathCheat" ref= "mathCheatObjectValue"/>
+		 
+		<!--  two times MathCheat object is created thst's why we are commenting
+		 and making it common above
+		 <property name="mathCheat">
+			<bean class="com.seleniumexpress.dependency.injection.MathCheat"></bean>
+		</property> -->
+		
+	</bean>
+	
+	<bean id="anotherStudent"
+		class="com.seleniumexpress.dependency.injection.AnotherStudent">
+		<property name="cheat" ref = "mathCheatObjectValue"/>
+		
+		<!--  two times MathCheat object is created that's why we are commenting
+		 and making it common above
+		<property name="cheat" >
+			<bean class="com.seleniumexpress.dependency.injection.MathCheat"></bean>
+	</property> -->
+	</bean>
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+  
