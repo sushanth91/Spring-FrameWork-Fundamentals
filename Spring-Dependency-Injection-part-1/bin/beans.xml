@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.seleniumexpress.dependency.injection" />
+    
+    
+      <!-- For Setter Injection -->
+      <!-- Bean definitions here -->
+    <bean id="student" class="com.seleniumexpress.dependency.injection.Student">
+        <property name="studentName" value="Sachin" />
+         <property name="id" value="1" />
+    </bean>       
+  
+
+    <!-- For Constructor Injection -->
+    <bean id="virat" class="com.seleniumexpress.dependency.injection.Student">
+        <constructor-arg name = "id" type="int" value="2" />
+        <constructor-arg name = "studentName" type="java.lang.String" value="virat" />
+    </bean>
+    
+    <!-- For Constructor Injection Single Field ID -->
+    <bean id="surya" class="com.seleniumexpress.dependency.injection.Student">
+        <constructor-arg name = "id"  value="3" />
+    </bean>
+    
+    
+</beans>
+
+
+
+
+
+
+
+
+
+
+  
