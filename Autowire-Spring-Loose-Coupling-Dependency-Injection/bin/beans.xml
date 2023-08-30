@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.seleniumexpress.autowire" />
+    <context:annotation-config></context:annotation-config>
+    
+   <!--  When multiple implementation of Heart object is present in Human Class we use @Qualifier -->
+   
+     <bean id="humanHeart" class="com.seleniumexpress.autowire.Heart" >
+     <property name="nameOfAnimal" value="Human"></property>
+     <property name="noOfHeart" value="1"></property>
+     </bean>
+     
+      <bean id="octopusHeart" class="com.seleniumexpress.autowire.Heart" >
+     <property name="nameOfAnimal" value="Octopus"></property>
+     <property name="noOfHeart" value="2"></property>
+     </bean>
+     
+    <bean id="human" class="com.seleniumexpress.autowire.Human"/> 
+    
+    
+    
+    
+                       <!--           @Autowired  Setter           -->
+    
+  <!--   <bean id="heartObjectValue" class="com.seleniumexpress.autowire.Heart" />
+    <bean id="human" class="com.seleniumexpress.autowire.Human">  -->
+    
+                        <!--           OR   autowire="constructor"             -->
+
+   <!--  <bean id="heartObjectValue" class="com.seleniumexpress.autowire.Heart" />
+    <bean id="human" class="com.seleniumexpress.autowire.Human" autowire="constructor"/> -->
+    
+                         <!--           OR  autowire="byType"             -->
+    
+  <!--   <bean id="heartObjectValue" class="com.seleniumexpress.autowire.Heart" />
+    <bean id="human" class="com.seleniumexpress.autowire.Human" autowire="byType"/> -->
+    
+                         <!--           OR autowire="byName"             -->
+    
+  <!--   <bean id="heart" class="com.seleniumexpress.autowire.Heart" />
+    <bean id="human" class="com.seleniumexpress.autowire.Human" autowire="byName"/> -->
+    
+    
+    
+    
+</beans>
