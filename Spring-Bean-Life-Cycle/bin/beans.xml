@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd"
+	default-init-method="init"
+    default-destroy-method="preDestroy">
+	<context:component-scan
+		base-package="com.beanlifecycle" />
+	  <context:property-placeholder
+		location="classpath:application.properties" />
+		
+		
+		
+		
+<!-- 	<context:annotation-config></context:annotation-config> -->
+
+             <!-- XML way defining @PostConstruct and @PreDestroy  method -->
+          
+	<!-- <bean id="studentDAO" class="com.beanlifecycle.StudentDAO" init-method="init" destroy-method="preDestroy"> -->
+	
+	         <!--  Annotation way defining @PostConstruct and @PreDestroy  method -->
+	         
+	     <bean id="studentDAO" class="com.beanlifecycle.StudentDAO">
+	    
+		<property name="driver" value="${spring.driver}"></property>
+		<property name="url" value="${spring.url}"></property>
+		<property name="userName" value="${spring.userName}"></property>
+		<property name="password" value="${spring.password}"></property>
+	</bean>
+	
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
+	
+	<!--               To activate @PostConstruct and @PreDestroy annotation          -->
+
+</beans>
+
+
